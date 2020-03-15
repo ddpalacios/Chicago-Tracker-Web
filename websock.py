@@ -9,8 +9,8 @@ from time import sleep
 chicago_cta_api = '94202b724e284d4eb8db9c5c5d074dcd'
 chicago_train_lines = "red,blue,G,pink,Brn,Org,P,Y"
 cta_url = "http://lapi.transitchicago.com/api/1.0/ttpositions.aspx?key={0}&rt={1}".format(chicago_cta_api, chicago_train_lines)
-
 app = Flask(__name__)
+
 app.config['SECRET_KEY'] = 'secret!'
 socketio = SocketIO(app)
 
