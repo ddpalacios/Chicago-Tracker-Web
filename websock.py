@@ -20,21 +20,21 @@ def index():
 
 @socketio.on('train_line')
 def handle_event(cta,number_of_trains):
-    print("Tracking --> {0} Line".format(cta))
-    print("RANGE --> {0}".format(number_of_trains))
+    print("Tracking --> {} Line".format(cta))
+    print("RANGE --> {}".format(number_of_trains))
     while(1):
         sleep(2.5)
         request_to_open_url= urllib.request.urlopen(cta_url)
         train_content = BeautifulSoup(request_to_open_url, 'xml')
         for train_line in cta:
-                train = train_content.select_one('route[name={0}]'.format(train_line))
+                train = train_content.select_one('route[name={}]'.format(train_line))
                 lat = train.findAll('lat', limit=int(number_of_trains))
                 lon = train.findAll('lon', limit=int(number_of_trains))
                 for (latitude,longitude) in zip(lat,lon):
                         latitude = latitude.text
                         longitude = longitude.text
                         print(train_line)
-                        print("coordinates: {0} , {1}--> #{2}".format(latitude, longitude, len(lon)))
+                        print("coordinates: {} , {}--> #{}".format(latitude, longitude, len(lon)))
                         emit('cord', (latitude,longitude,train_line))
                 print()
           
