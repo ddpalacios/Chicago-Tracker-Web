@@ -1,11 +1,261 @@
 <!DOCTYPE html>
 <html>
 <title>CTA TRACKER</title>
-<h4 style="position: relative; left: 50%;">Train Selection</h4>
 
 
-<head></head>
-<body></body>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="refresh" content="25" />
+    <style>
+    body{
+      background-image: url("chicago.jpg");
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-position: center;
+      background-size: 100%;
+    
+    }
+
+
+    body {
+  font-size: 62.5%;
+  font-style: Arial;
+}
+
+.animation-box {
+  width: 75%;
+  height: 27.5rem;
+ 
+  margin: 0 auto;
+  overflow: hidden;
+  position: relative;
+}
+
+.animation-container {
+  width: 1000rem;
+  height: 30rem;
+}
+
+@keyframes topFadeOut {
+  0% {
+    position: absolute;
+    top: -3rem;
+    opacity: 0;
+  }
+
+  75% {
+    position: absolute;
+    top: 25%;
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes bottomFadeOut {
+  0% {
+    position: absolute;
+    bottom: -5rem;
+    opacity: 0;
+  }
+
+  75% {
+    position: absolute;
+    bottom: 25%;
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+  
+}
+
+@keyframes topFadeOutVertical {
+  0% {
+    position: absolute;
+    top: -3rem;
+    opacity: 0;
+  }
+
+  75% {
+    position: absolute;
+    top: 45%;
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes rightFadeInOut {
+  0% {
+    position: absolute;
+    right: -3rem;
+    opacity: 0;
+  }
+
+  75% {
+    position: absolute;
+    right: 10rem;
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    right: 10rem;
+  }
+}
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+  }
+
+  45% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0%;
+  }
+}
+
+.first-text {
+  font-size: 4.4rem;
+  position: absolute;
+  left: 2.5rem;
+  top: 5rem;
+  opacity: 0;
+  animation-name: topFadeOut;
+  animation-duration: 5s;
+  text-shadow: 1px 1px 1px rgb(129, 86, 86),
+             2px 2px 1px rgba(40, 38, 42, 0.63);
+  
+  color: rgb(17, 10, 29);
+}
+
+.second-text {
+  font-size: 3.4rem;
+  position: absolute;
+  top: 8.5rem;
+  opacity: 0;
+  animation-name: rightFadeInOut;
+  animation-delay: 5s;
+  animation-duration: 6s;
+  text-shadow: 1px 1px 1px rgb(129, 86, 86),
+             2px 2px 1px rgba(40, 38, 42, 0.63);
+
+  color: rgb(17, 10, 29);
+}
+
+.third-text {
+  transform: rotate(-90deg);
+  font-size: 2rem;
+  position: absolute;
+  left: 45%;
+  top: 45%;
+  opacity: 0;
+  animation-name: topFadeOutVertical;
+  animation-delay: 7.5s;
+  animation-duration: 6s;
+  text-shadow: 1px 1px 1px rgb(129, 86, 86),
+             2px 2px 1px rgba(40, 38, 42, 0.63);
+
+  color: rgb(17, 10, 29);
+  white-space: nowrap;
+}
+
+.fourth-text {
+  font-size: 3.4rem;
+  position: absolute;
+  top: 5.5rem;
+  left: 10%;
+  opacity: 0;
+  text-shadow: 1px 1px 1px rgb(129, 86, 86),
+             2px 2px 1px rgba(40, 38, 42, 0.63);
+  
+  color: rgb(17, 10, 29);
+  animation-name: fadeInOut;
+  animation-delay: 8.5s;
+  animation-duration: 9s;
+}
+
+.fifth-text {
+  font-size: 5rem;
+  position: absolute;
+  left: 5%;
+  bottom: 25%;
+  opacity: 0;
+  text-shadow: 1px 1px 1px rgb(129, 86, 86),
+             2px 2px 1px rgba(40, 38, 42, 0.63);
+  
+  color: rgb(17, 10, 29);
+  animation-name: bottomFadeOut;
+  animation-delay: 10s;
+  animation-duration: 9s;
+}
+
+.sixth-text {
+  font-size: 5rem;
+  position: absolute;
+  left: 5%;
+  bottom: 35%;
+  opacity: 0;
+  text-shadow: 1px 1px 1px rgb(129, 86, 86),
+             2px 2px 1px rgba(40, 38, 42, 0.63);
+  
+  color: rgb(17, 10, 29);
+  animation-name: bottomFadeOut;
+  animation-delay: 15s;
+  animation-duration: 10s;
+  
+}
+
+.btn {
+position: relative;
+  background-color: #7d6480;
+  border: 2px solid rgb(12, 12, 12); /* Green */
+  left: 40%;
+  text-shadow: 1px 1px 1px rgb(129, 86, 86),
+             2px 2px 1px rgba(40, 38, 42, 0.63);
+  
+  color: rgb(17, 10, 29);
+  padding: 16px 32px;
+  text-align: center;
+  font-size: 46px;
+  margin: 4px 2px;
+  opacity: 1;
+  transition: 0.3s;
+}
+
+.btn:hover {opacity: 0.6}
+
+
+    </style>
+
+
+</head>
+<body>
+
+
+    <section class="animation-box">
+        <div class="first-text">Hey There!</div>
+        <div class="second-text">Click the button below to view a live mapping</div>
+        <div class="fourth-text">You wont regret it... I hope...</div>
+        <div class="fifth-text">Aren't you late for work? Click the button already</div>
+        <div class="sixth-text">CTA Tracker</div>
+      </section>
+
+      <a href="cta_map.html"class="btn">VIEW CTA MAP
+      </a>
+     
+    
+
+</body>
 
 </html>
 
