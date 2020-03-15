@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html>
 <title>CTA TRACKER</title>
-
-
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="refresh" content="25" />
-    <style>
+   
+   <style>
     body{
       background-image: url("chicago.jpg");
       background-repeat: no-repeat;
@@ -236,11 +235,8 @@ position: relative;
 
 
     </style>
-
-
 </head>
 <body>
-
 
     <section class="animation-box">
         <div class="first-text">Hey There!</div>
@@ -249,12 +245,8 @@ position: relative;
         <div class="fifth-text">Aren't you late for work? Click the button already</div>
         <div class="sixth-text">CTA Tracker</div>
       </section>
-
       <a href="cta_map.html"class="btn">VIEW CTA MAP
       </a>
-     
-    
-
 </body>
 
 </html>
@@ -262,109 +254,4 @@ position: relative;
 
 
 
- <!-- <title>CTA TRACKER</title>
-    <h1>LIVE CTA</h1>
-    <h4>Train Selection</h4>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-        <select id="train_list" multiple  name='cta_line' >
-            <option value="red">RED</option>
-            <option value="blue">BLUE</option>
-            <option value="g">GREEN</option>
-            <option value="y">YELLOW</option>
-            <option value="p">PURPLE</option>
-            <option value="org">ORANGE</option>
-            <option value="pink">PINK</option>
-            <option value="brn">BROWN</option>
-            <option value="all">ALL</option>
-        </select> 
-                <input type="button" id="add_line"  value="ADD LINE">
-                <p>Lines selected: <span id = "list"> </span></p>
-                Select Range (1-10) <input id="range" type="text"></input>
-                <input type="submit" id="submit_data"  value="Enter">
-                <hr>
-                
-                
-                
-                <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
-                <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css" />
-                <script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js"></script>
-                <body onload ="connect_send_recieve()">
-                    <pre id="FileContent"></pre>
-                    <div id='mapid' style="width: 500px; height: 500px"></div>
-                </body>
-                        </head>
-                        <script type=text/javascript src="{{url_for('static', filename='jquery.js') }}"></script>
-                        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.4.8/socket.io.min.js"></script>
-                        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-
-
-    <script>
-        var my_icon = L.icon({
-            iconUrl: 'my_marker.jpg',
-
-            iconSize: [38,95]
-            
-        })
-
-
-
-
-   var chicago_map = L.map('mapid').setView([41.8781, 87.6298], 10);
-        var link = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: link,
-        }).addTo(chicago_map);
-    var specific_lines =[]
-    var current_position, current_accuracy;
-    chicago_map.locate({setView: true, maxZoom: 10}).on('locationfound',function(e){
-        var marker = L.marker([e.latitude, e.longitude]).addTo(chicago_map).bindPopup('YOU ARE HERE');
-       
-        chicago_map.addLayer(marker);
-       
-    });
-   
-    function connect_send_recieve() {
-document.getElementById("add_line").onclick = function(){
-            var list_index = document.getElementById("train_list").selectedIndex;
-            var get_trainName = document.getElementById("train_list").options;
-            train_line = get_trainName[list_index].value
-           
-            if (train_line == 'all'){
-                specific_lines.push("red", "blue", "brn","g" ,"pink","org","p","y")
-                console.log(specific_lines)
-            }
-            else{
-            specific_lines.push(train_line)
-            console.log(specific_lines)
-            }
-           
-
-    
-    document.getElementById("list").innerHTML = specific_lines
-}
-
-document.getElementById("submit_data").onclick = function (){
-        var number_of_trains=document.getElementById("range").value
-        var socket = io.connect('http://127.0.0.1:5000/',{secure:true});
-        socket.on('connect', function(){
-        socket.emit('train_line', specific_lines,number_of_trains)}); //sending data to python
-
-        socket.on('cord', function(lat,lon,lines){  //retrieving data from python (response)
-        set_marker(lat, lon,lines)});     
-}
-    }
-    
-    function set_marker(lat,lon,lines) {
-    lati = parseFloat(lat)
-    longt = parseFloat(lon)
-    var any_train= L.marker([lati, longt]).addTo(chicago_map).bindPopup(lines).openPopup(false);
-    var tracking = L.layerGroup([any_train]).addTo(chicago_map);
-     setTimeout(function(){
-     tracking.clearLayers();
-     
-   }, 3000)
-   
-    }
-
-    </script>
-    -->
+ 
