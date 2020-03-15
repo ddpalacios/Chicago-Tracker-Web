@@ -18,6 +18,11 @@ socketio = SocketIO(app)
 def index():
     return render_template('Frontend.html')
 
+@app.route('/tracker')
+def tracker():
+    return render_template("cta_map.html")
+
+
 @socketio.on('train_line')
 def handle_event(cta,number_of_trains):
     print("Tracking --> {} Line".format(cta))

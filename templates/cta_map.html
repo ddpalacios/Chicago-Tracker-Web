@@ -22,7 +22,7 @@ color: rgb(230, 215, 215);
   text-shadow: 1px 1px 1px rgb(129, 86, 86),
              2px 2px 1px rgba(40, 38, 42, 0.63);
   position: relative;
-  top: 150px;
+  top: 20px;
   left: 30%;
   color: rgb(0, 0, 0);
 }
@@ -62,9 +62,11 @@ p{
 
 
 .slidecontainer {
+    font-size: 10px;
 position: relative;
   width: 50%;
-  right: 20%;
+  right: 7%;
+  top: 45px;
 }
 
 .slider {
@@ -144,6 +146,35 @@ a:hover{
     cursor: pointer;
 }
 
+output { 
+  position: absolute;
+  background-image: linear-gradient(#444444, #999999);
+  width: 40px; 
+  height: 30px; 
+  text-align: center; 
+  color: white; 
+  border-radius: 10px; 
+  display: inline-block; 
+  font: bold 15px/30px Georgia;
+  bottom: 175%;
+  left: 0;
+}
+output:after { 
+  content: "";
+  position: absolute; 
+  width: 0;
+  height: 0;
+  border-top: 10px solid #999999;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  margin-top: -1px;
+}
+form { position: relative; margin: 50px; width: 1200px; }
+
+
 
 </style>
 <head>
@@ -170,18 +201,20 @@ a:hover{
 </div>
 <div class="add_line" style="position: relative; bottom: -90px; left: 35%;">
 </div>
-<p style="position: relative; left: 38%; top: -70px;">Lines selected: <span id = "list"> </span></p>
+<p style="position: relative; left: 38%; top: -190px;">Lines selected: <span id = "list"> </span></p>
 
 <div style="position: relative; font-size: x-large; left: 45%; bottom: -170px;">
 <div class="slidecontainer">
-    
-    <input type="range" min="1" max="100" value="50" class="slider" id="range">
+    <form>
+        <input id="range" type="range" name="foo" min="0" max="25" style="width: 300px;">
+        <output for="foo" onforminput="value = foo.valueAsNumber;"></output>
+        </form>
   </div>
 </div>
 <hr style="position: relative; top: 125px;">
 <hr style="position: relative; top: 160px;">
 
-<!-- <link rel="stylesheet" type="text/css" media="screen" href="main.css" /> -->
+
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css" />
 <script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js"></script>
 <pre id="FileContent"></pre>
@@ -250,6 +283,7 @@ document.getElementById("list").innerHTML = specific_lines
 
 document.getElementById("submit_data").onclick = function (){
     var number_of_trains=document.getElementById("range").value
+    console.log(number_of_trains)
     var socket = io.connect('http://127.0.0.1:5000/',{secure:true});
     socket.on('connect', function(){
     socket.emit('train_line', specific_lines,number_of_trains)}); //sending data to python
@@ -270,6 +304,51 @@ var tracking = L.layerGroup([any_train]).addTo(chicago_map);
 }, 3000)
 
 }
+</script>
+
+<script> 
+function modifyOffset() {
+    var el, newPoint, newPlace, offset, siblings, k;
+    width    = this.offsetWidth;
+    newPoint = (this.value - this.getAttribute("min")) / (this.getAttribute("max") - this.getAttribute("min"));
+    offset   = -1;
+    if (newPoint < 0) { newPlace = 0;  }
+    else if (newPoint > 1) { newPlace = width; }
+    else { newPlace = width * newPoint + offset; offset -= newPoint;}
+    siblings = this.parentNode.childNodes;
+    for (var i = 0; i < siblings.length; i++) {
+        sibling = siblings[i];
+        if (sibling.id == this.id) { k = true; }
+        if ((k == true) && (sibling.nodeName == "OUTPUT")) {
+            outputTag = sibling;
+        }
+    }
+    outputTag.style.left       = newPlace + "px";
+    outputTag.style.marginLeft = offset + "%";
+    outputTag.innerHTML        = this.value;
+}
+
+function modifyInputs() {
+    
+    var inputs = document.getElementsByTagName("input");
+    for (var i = 0; i < inputs.length; i++) {
+        if (inputs[i].getAttribute("type") == "range") {
+            inputs[i].onchange = modifyOffset;
+
+            // the following taken from http://stackoverflow.com/questions/2856513/trigger-onchange-event-manually
+            if ("fireEvent" in inputs[i]) {
+                inputs[i].fireEvent("onchange");
+            } else {
+                var evt = document.createEvent("HTMLEvents");
+                evt.initEvent("change", false, true);
+                inputs[i].dispatchEvent(evt);
+            }
+        }
+    }
+}
+
+modifyInputs();
+
 
 </script>
 </html>
