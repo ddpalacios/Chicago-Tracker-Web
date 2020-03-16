@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="refresh" content="25" />
    
-   <style>
+<style>
     body{
-      background-image: url("chicago.jpg");
+      background-image: url("{{url_for('static', filename='photos/chicago.jpg')}}");
       background-repeat: no-repeat;
       background-attachment: fixed;
       background-position: center;
@@ -131,10 +131,10 @@
   opacity: 0;
   animation-name: topFadeOut;
   animation-duration: 5s;
-  text-shadow: 1px 1px 1px rgb(129, 86, 86),
-             2px 2px 1px rgba(40, 38, 42, 0.63);
+  text-shadow: 1px 1px 1px rgb(214, 210, 219),
+             2px 2px 1px rgba(253, 253, 253, 0.63);
   
-  color: rgb(17, 10, 29);
+  color: rgb(3, 3, 3);
 }
 
 .second-text {
@@ -145,10 +145,10 @@
   animation-name: rightFadeInOut;
   animation-delay: 5s;
   animation-duration: 6s;
-  text-shadow: 1px 1px 1px rgb(129, 86, 86),
-             2px 2px 1px rgba(40, 38, 42, 0.63);
-
-  color: rgb(17, 10, 29);
+  text-shadow: 1px 1px 1px rgb(214, 210, 219),
+             2px 2px 1px rgba(253, 253, 253, 0.63);
+  
+  color: rgb(3, 3, 3);
 }
 
 .third-text {
@@ -161,10 +161,10 @@
   animation-name: topFadeOutVertical;
   animation-delay: 7.5s;
   animation-duration: 6s;
-  text-shadow: 1px 1px 1px rgb(129, 86, 86),
-             2px 2px 1px rgba(40, 38, 42, 0.63);
-
-  color: rgb(17, 10, 29);
+  text-shadow: 1px 1px 1px rgb(214, 210, 219),
+             2px 2px 1px rgba(253, 253, 253, 0.63);
+  
+  color: rgb(3, 3, 3);
   white-space: nowrap;
 }
 
@@ -174,13 +174,13 @@
   top: 5.5rem;
   left: 10%;
   opacity: 0;
-  text-shadow: 1px 1px 1px rgb(129, 86, 86),
-             2px 2px 1px rgba(40, 38, 42, 0.63);
+  text-shadow: 1px 1px 1px rgb(214, 210, 219),
+             2px 2px 1px rgba(253, 253, 253, 0.63);
   
-  color: rgb(17, 10, 29);
+  color: rgb(3, 3, 3);
   animation-name: fadeInOut;
   animation-delay: 8.5s;
-  animation-duration: 9s;
+  animation-duration: 6s;
 }
 
 .fifth-text {
@@ -189,10 +189,10 @@
   left: 5%;
   bottom: 25%;
   opacity: 0;
-  text-shadow: 1px 1px 1px rgb(129, 86, 86),
-             2px 2px 1px rgba(40, 38, 42, 0.63);
+  text-shadow: 1px 1px 1px rgb(214, 210, 219),
+             2px 2px 1px rgba(253, 253, 253, 0.63);
   
-  color: rgb(17, 10, 29);
+  color: rgb(3, 3, 3);
   animation-name: bottomFadeOut;
   animation-delay: 10s;
   animation-duration: 9s;
@@ -204,10 +204,10 @@
   left: 5%;
   bottom: 35%;
   opacity: 0;
-  text-shadow: 1px 1px 1px rgb(129, 86, 86),
-             2px 2px 1px rgba(40, 38, 42, 0.63);
+  text-shadow: 1px 1px 1px rgb(214, 210, 219),
+             2px 2px 1px rgba(253, 253, 253, 0.63);
   
-  color: rgb(17, 10, 29);
+  color: rgb(3, 3, 3);
   animation-name: bottomFadeOut;
   animation-delay: 15s;
   animation-duration: 10s;
@@ -233,22 +233,33 @@ position: relative;
 
 .btn:hover {opacity: 0.6}
 
+</style>
 
-    </style>
 </head>
 <body>
 
     <section class="animation-box">
-        <div class="first-text">Hey There!</div>
-        <div class="second-text">Click the button below to view a live mapping</div>
-        <div class="fourth-text">You wont regret it... I hope...</div>
-        <div class="fifth-text">Aren't you late for work? Click the button already</div>
-        <div class="sixth-text">CTA Tracker</div>
+        <div class="first-text">Good Morning, Daniel!</div>
+        <div class="second-text">Click the button below to view a live mapping.</div>
+        <div class="fourth-text">You won't regret it... I hope...</div>
+        <div class="fifth-text">Aren't you late for work? Click the button already.</div>
+        <div class="sixth-text">Live CTA Tracker</div>
       </section>
-      <a href="cta_map.html"class="btn">VIEW CTA MAP
-      </a>
-</body>
+    
+     
+      <div class='container'>
+            <form>
+                <button id=test href="cta_map.html"class="btn btn-default">VIEW CTA MAP</button>
+            </form>
+    </div>
 
+
+</body>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.4.8/socket.io.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+
+</script>
 </html>
 
 

@@ -1,6 +1,6 @@
 import gevent.monkey
 gevent.monkey.patch_all()
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect, url_for
 from flask_socketio import SocketIO, join_room, emit, send
 from urllib.request import urlopen
 import urllib
@@ -15,13 +15,12 @@ app.config['SECRET_KEY'] = 'secret!'
 socketio = SocketIO(app)
 
 @app.route('/')
-def index():
+def index():   
     return render_template('Frontend.html')
 
 @app.route('/tracker')
 def tracker():
-    return render_template("cta_map.html")
-
+    return render_template('cta_map.html')
 
 @socketio.on('train_line')
 def handle_event(cta,number_of_trains):

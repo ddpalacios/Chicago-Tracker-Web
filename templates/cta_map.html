@@ -2,10 +2,10 @@
 <html>
 <title>CTA TRACKER</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.4.8/socket.io.min.js"></script>
 <style>
 body{
-    /* background-color: rgb(73, 68, 102); */
-      background-image: url("chicago2.jpg");
+      background-image: url("{{url_for('static', filename='photos/chicago2.jpg')}}");
       background-repeat: no-repeat;
       background-attachment: fixed;
       background-position: center;
@@ -290,7 +290,6 @@ var tracking = L.layerGroup([any_train]).addTo(chicago_map);
 
 }
 </script>
-
 <script> 
 function modifyOffset() {
     var el, newPoint, newPlace, offset, siblings, k;
