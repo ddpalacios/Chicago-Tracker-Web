@@ -8,13 +8,16 @@ When Chicago's public train system started to have live lighting trackings for n
 **To Run:**
 
 excecute:
+
 *export FLASK_APP=websock.py*
 
-then, run
+then, run:
+
 *flask run*
 
 This will take you to its main page as shown here:
 
+![](static/photos/main_page.png)
 To redirect our page to our tracker page, 
 
 Head to: 
@@ -23,6 +26,8 @@ Head to:
 
 It should redirct you to a page that looks like this:
 
+
+![](static/photos/tracker.png)
 
 
 **Description**
