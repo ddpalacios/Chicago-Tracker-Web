@@ -1,6 +1,8 @@
 # Chicago-Tracker-Web
 Allows to track every train of any line in Chicago
 
+source env/bin/activate
+
 **Motivation**
 
 When Chicago's public train system started to have live lighting trackings for navigation, I was a bit inspired to have a similar technology system in my own bedroom/apartment. This gave me the advantage to track the most nearst train in my location. Originally, in the train, we can only see our current train that and which stop it is at. I wanted to do this with all train lines and with a varity of them of my choosing. This application can be easiliy transferrable for physical LEDs that can pin point exactly the postion of a train. 
